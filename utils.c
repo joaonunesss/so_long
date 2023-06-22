@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:56:37 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/22 16:16:49 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/22 17:16:30 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,18 @@ int check_key(int key, t_game *so_long)
 	so_long->prev.x = so_long->cur.x;
     if (key == ESC)
 		quit_game(so_long);
-	else if (key == W)
+	else if (key == W || key == UP)
 		so_long->cur.y--;
-	else if (key == S)
+	else if (key == S || key == DOWN)
 		so_long->cur.y++;
-	else if (key == A)
+	else if (key == A || key == LEFT)
 		so_long->cur.x--;
-	else if (key == D)
+	else if (key == D || key == RIGHT)
 		so_long->cur.x++;
 	if(so_long->map[so_long->cur.y][so_long->cur.x] != WALL)
 	{	
-		if (key == W || key == A || key == D || key == S)
+		if (key == W || key == A || key == D || key == S \
+			|| key == UP || key == DOWN || key == LEFT || key == RIGHT)
 			ft_printf("Moves: %i\n", ++so_long->moves);
 		if (so_long->map[so_long->cur.y][so_long->cur.x] == COIN)
 			so_long->coins++;
