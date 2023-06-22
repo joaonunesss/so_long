@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:46:01 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/22 16:17:35 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:46:27 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 
 # define SIZE		32
 # define SPRITES	5
-# define FW1		"sprites/wall.xpm"
-# define FS1		"sprites/background.xpm"
-# define FC1		"sprites/colectible.xpm"
-# define FE1		"sprites/exit.xpm"
-# define FP1		"sprites/player.xpm"
+# define FW1		"sprites/wall2.xpm"
+# define FS1		"sprites/background2.xpm"
+# define FC1		"sprites/colectible2.xpm"
+# define FE1		"sprites/exit2.xpm"
+# define FP1		"sprites/player2.xpm"
 
 typedef enum e_tile
 {
