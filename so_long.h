@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:46:01 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/21 15:28:06 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/22 16:17:35 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ typedef struct s_position
 typedef struct s_game
 {
 	t_sprite	*sprites;
-	t_position next;
 	t_position prev;
 	t_position cur;
 	void	*mlx;
@@ -99,14 +98,10 @@ typedef struct s_game
 	int		exit;
 }	t_game;
 
-//so_long.c
-int	check_filename(char *str);
-void	launch_game(char *map_file);
+
 //create_map.c
-void	read_map(t_game *so_long, char *map_file);
-void	get_rows(t_game *so_long, char *map_file);
-void	get_cols(t_game *so_long);
-t_game	*create_map(t_game *so_long);
+void	create_map(t_game *so_long, char *map_file);
+void	read_map(t_game *so_long, char *map_file, int fd);
 //render.c
 void    launch_mlx(t_game *so_long);
 void    load_sprites(t_game *so_long);
@@ -114,23 +109,16 @@ void    render_map(t_game *solong);
 void    render_positions(t_game *so_long, int x, int y);
 //utils.c
 int	flood_fill(int total_coins, int cur_y, int cur_x, char **test_map);
-int check_keypress(int key, t_game *so_long);
+int check_key(int key, t_game *so_long);
 int	quit_game(t_game *so_long);
 int	exit_error(char *msg);
 //check_map.c
-int	check_format(t_game *so_long);
-int	check_walls(t_game *so_long);
-int	check_sprites(t_game *so_long);
-int	check_paths(t_game *so_long);
 void	check_map(t_game *so_long);
-//move_player.ccur.x
+//ft_libx.c
 int	is_same_point(t_game *so_long);
 int	check_move(t_game *so_long);
-void	move_player(t_game *so_long);
 int	render_move(t_game *so_long);
 //clean_and_exit.c
 void	clean_test_map(char **test_map);
-void	clean_sprites(t_game *so_long);
-void	clean_map(t_game *so_long);
 void	clean_game(t_game *so_long);
 #endif

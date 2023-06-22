@@ -6,16 +6,11 @@
 #    By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/23 15:22:11 by jmarinho          #+#    #+#              #
-#    Updated: 2023/06/21 16:01:56 by jmarinho         ###   ########.fr        #
+#    Updated: 2023/06/22 14:53:51 by jmarinho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#    Created: 2023/05/12 08:04:49 by wcorrea-          #+#    #+#              #
-#    Updated: 2023/05/15 22:31:58 by wcorrea-         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-SRC = so_long.c create_map.c render.c utils.c check_map.c \
+SRC = so_long.c create_sl_map.c ft_libx.c utils.c check_errors.c \
 		clean_and_exit.c\
 
 NAME = so_long.a
