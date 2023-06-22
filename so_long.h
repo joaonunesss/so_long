@@ -1,0 +1,136 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/29 17:46:01 by jmarinho          #+#    #+#             */
+/*   Updated: 2023/06/21 15:28:06 by jmarinho         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef SO_LONG_H
+# define SO_LONG_H
+
+# include "lib/libft/libft.h"
+# include "lib/mlx/mlx.h"
+
+# define SIZE		32
+# define SPRITES	5
+# define FW1		"sprites/wall.xpm"
+# define FS1		"sprites/background.xpm"
+# define FC1		"sprites/colectible.xpm"
+# define FE1		"sprites/exit.xpm"
+# define FP1		"sprites/player.xpm"
+
+typedef enum e_tile
+{
+	SPACE	= '0',
+	WALL	= '1',
+	COIN	= 'C',
+	EXIT	= 'E',
+	PLAYER	= 'P',
+}	t_tile;
+
+typedef enum e_index
+{
+	W1,
+	S1,
+	C1,
+	E1,
+	P1,
+}	t_id;
+
+typedef enum e_key
+{
+	ESC		= 65307,
+	W		= 119,
+	A		= 97,
+	S		= 115,
+	D		= 100,
+	UP		= 65362,
+	DOWN	= 65364,
+	LEFT	= 65361,
+	RIGHT	= 65363,
+}	t_key;
+
+typedef enum e_event
+{
+	ON_KEYPRESS	= 2,
+	ON_CLOSE	= 17,
+}	t_event;
+
+typedef enum e_mask
+{
+	KEYPRESS_MASK	= (1L << 0),
+	CLOSE_MASK		= (1L << 17)
+}	t_mask;
+
+typedef struct s_sprite
+{
+	void	*img;
+	int		height;
+	int		width;
+}			t_sprite;
+
+typedef struct s_position
+{
+	int		x;
+	int		y;
+}			t_position;
+
+typedef struct s_game
+{
+	t_sprite	*sprites;
+	t_position next;
+	t_position prev;
+	t_position cur;
+	void	*mlx;
+	void	*win;
+	char	**map;
+	int		rows;
+	int		cols;
+	int		moves;
+	int		player;
+	int		total_coins;
+	int		coins;
+	int		collect;
+	int		exit;
+}	t_game;
+
+//so_long.c
+int	check_filename(char *str);
+void	launch_game(char *map_file);
+//create_map.c
+void	read_map(t_game *so_long, char *map_file);
+void	get_rows(t_game *so_long, char *map_file);
+void	get_cols(t_game *so_long);
+t_game	*create_map(t_game *so_long);
+//render.c
+void    launch_mlx(t_game *so_long);
+void    load_sprites(t_game *so_long);
+void    render_map(t_game *solong);
+void    render_positions(t_game *so_long, int x, int y);
+//utils.c
+int	flood_fill(int total_coins, int cur_y, int cur_x, char **test_map);
+int check_keypress(int key, t_game *so_long);
+int	quit_game(t_game *so_long);
+int	exit_error(char *msg);
+//check_map.c
+int	check_format(t_game *so_long);
+int	check_walls(t_game *so_long);
+int	check_sprites(t_game *so_long);
+int	check_paths(t_game *so_long);
+void	check_map(t_game *so_long);
+//move_player.ccur.x
+int	is_same_point(t_game *so_long);
+int	check_move(t_game *so_long);
+void	move_player(t_game *so_long);
+int	render_move(t_game *so_long);
+//clean_and_exit.c
+void	clean_test_map(char **test_map);
+void	clean_sprites(t_game *so_long);
+void	clean_map(t_game *so_long);
+void	clean_game(t_game *so_long);
+#endif
