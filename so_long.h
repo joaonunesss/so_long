@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:46:01 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/22 17:14:44 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/22 18:35:11 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,14 +94,14 @@ typedef struct s_game
 	int		player;
 	int		total_coins;
 	int		coins;
-	int		collect;
+	// int		collect;
 	int		exit;
 }	t_game;
 
 
 //create_map.c
 void	create_map(t_game *so_long, char *map_file);
-void	read_map(t_game *so_long, char *map_file, int fd);
+void	read_map(t_game *so_long, int fd);
 //render.c
 void    launch_mlx(t_game *so_long);
 void    load_sprites(t_game *so_long);

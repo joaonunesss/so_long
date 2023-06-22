@@ -6,7 +6,7 @@
 #    By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/23 15:22:11 by jmarinho          #+#    #+#              #
-#    Updated: 2023/06/22 14:53:51 by jmarinho         ###   ########.fr        #
+#    Updated: 2023/06/22 18:33:51 by jmarinho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ all: ${NAME}
 $(NAME): ${OBJS}
 		${MAKE} ${LIBFT_PATH}
 		${MAKE} ${MLX_PATH}
-		cc ${OBJS} ${LIBFT} ${MLX} -o so_long
+		cc ${FLAGS} ${OBJS} ${LIBFT} ${MLX} -o so_long
 
 clean:
 		${MAKE} ${LIBFT_PATH} clean

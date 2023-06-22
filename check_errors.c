@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:30:18 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/22 16:17:46 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/22 17:56:14 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	check_format(t_game *so_long)
 {
 	int	i;
-	int	fst_row_len;
+	int	row_len;
 
 	i = 0;
-	fst_row_len = ft_strlen(so_long->map[0]);
+	row_len = ft_strlen(so_long->map[0]);
 	while (i < so_long->rows)
 	{
-		if (ft_strlen(so_long->map[i]) != fst_row_len)
+		if (ft_strlen(so_long->map[i]) != row_len)
 			return (1);
         i++;
 	}
@@ -60,14 +60,13 @@ int	check_sprites(t_game *so_long)
 				so_long->player++;
 				so_long->cur.x = j;
 				so_long->cur.y = i;
-				// so_long->prev = so_long->cur;
 			}
 			else if (so_long->map[i][j] == EXIT)
 				so_long->exit++;
 			else if (so_long->map[i][j] == COIN)
 				so_long->total_coins++;
 			else if (!ft_strchr("01CEP", so_long->map[i][j]))
-				return (0);
+				return (4);
 		}
 	}
 	if (so_long->player != 1)
@@ -123,6 +122,8 @@ void    check_map(t_game *so_long)
 		exit_error("Map has invalid number of exits.");
 	else if (i == 3)
 		exit_error("Map has invalid number of coins.");
+	else if (i == 4)
+		exit_error("Map has invalid characters.");
 	if (check_paths(so_long))
 		exit_error("Map has invalid path.");
 }
