@@ -6,14 +6,14 @@
 #    By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/23 15:22:11 by jmarinho          #+#    #+#              #
-#    Updated: 2023/06/22 18:33:51 by jmarinho         ###   ########.fr        #
+#    Updated: 2023/06/23 13:24:26 by jmarinho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = so_long.c create_sl_map.c ft_libx.c utils.c check_errors.c \
-		clean_and_exit.c\
+SRC = so_long.c create_sl_map.c libx.c utils.c check_errors.c \
+		clean_and_exit.c moves.c \
 
-NAME = so_long.a
+NAME = so_long
 
 OBJS = ${SRC:.c=.o}
 
@@ -36,7 +36,7 @@ all: ${NAME}
 $(NAME): ${OBJS}
 		${MAKE} ${LIBFT_PATH}
 		${MAKE} ${MLX_PATH}
-		cc ${FLAGS} ${OBJS} ${LIBFT} ${MLX} -o so_long
+		cc ${FLAGS} ${OBJS} ${LIBFT} ${MLX} -o ${NAME}
 
 clean:
 		${MAKE} ${LIBFT_PATH} clean
@@ -45,7 +45,7 @@ clean:
 
 fclean: clean
 		${MAKE} ${LIBFT_PATH} fclean
-		${RM} so_long
+		${RM} ${NAME}
 
 re: fclean all
 

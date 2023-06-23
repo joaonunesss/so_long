@@ -20,8 +20,8 @@ void	clean_test_map(char **test_map)
 	if (!test_map)
 		return ;
 	while (test_map[i])
-		free (test_map[i++]);
-	free (test_map);
+		free(test_map[i++]);
+	free(test_map);
 }
 
 void	clean_sprites(t_game *so_long)
@@ -31,19 +31,19 @@ void	clean_sprites(t_game *so_long)
 	i = -1;
 	while (++i < SPRITES)
 		mlx_destroy_image(so_long->mlx, so_long->sprites[i].img);
-	free (so_long->sprites);
+	free(so_long->sprites);
 }
 
 void	clean_map(t_game *so_long)
 {
-    size_t i;
+	size_t	i;
 
-    i = 0;
+	i = 0;
 	if (!so_long->map)
 		return ;
 	while (so_long->map[i])
-		free (so_long->map[i++]);
-	free (so_long->map);
+		free(so_long->map[i++]);
+	free(so_long->map);
 }
 
 void	clean_game(t_game *so_long)

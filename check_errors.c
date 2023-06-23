@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:30:18 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/22 17:56:14 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/23 13:37:36 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_format(t_game *so_long)
 	{
 		if (ft_strlen(so_long->map[i]) != row_len)
 			return (1);
-        i++;
+		i++;
 	}
 	so_long->cols = ft_strlen(so_long->map[0]);
 	return (0);
@@ -35,11 +35,13 @@ int	check_walls(t_game *so_long)
 
 	i = -1;
 	while (++i < so_long->rows)
-		if (so_long->map[i][0] != WALL || so_long->map[i][so_long->cols - 1] != WALL)
+		if (so_long->map[i][0] != WALL || so_long->map[i][so_long->cols
+			- 1] != WALL)
 			return (1);
 	i = -1;
 	while (++i < so_long->cols)
-		if (so_long->map[0][i] != WALL || so_long->map[so_long->rows - 1][i] != WALL)
+		if (so_long->map[0][i] != WALL || so_long->map[so_long->rows
+			- 1][i] != WALL)
 			return (1);
 	return (0);
 }
@@ -69,18 +71,12 @@ int	check_sprites(t_game *so_long)
 				return (4);
 		}
 	}
-	if (so_long->player != 1)
-		return(1);
-	else if (so_long->exit != 1)
-		return(2);
-	else if (so_long->total_coins < 1)
-		return(3);
-	return (0);
+	return (return_msg(so_long));
 }
 
 int	check_paths(t_game *so_long)
 {
-	int	i;
+	int		i;
 	int		reach_exit;
 	char	**test_map;
 
@@ -100,15 +96,16 @@ int	check_paths(t_game *so_long)
 			}
 		}
 	}
-	reach_exit = flood_fill(so_long->total_coins, so_long->cur.y, so_long->cur.x, test_map);
+	reach_exit = flood_fill(so_long->total_coins, so_long->cur.y, \
+			so_long->cur.x, test_map);
 	clean_test_map(test_map);
 	return (reach_exit);
 }
 
-void    check_map(t_game *so_long)
+void	check_map(t_game *so_long)
 {
-	int i;
-	
+	int	i;
+
 	if (!so_long->rows)
 		exit_error("Map is empty.");
 	if (check_format(so_long))

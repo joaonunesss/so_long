@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:46:01 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/22 18:35:11 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/23 13:25:59 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,41 +83,36 @@ typedef struct s_position
 typedef struct s_game
 {
 	t_sprite	*sprites;
-	t_position prev;
-	t_position cur;
-	void	*mlx;
-	void	*win;
-	char	**map;
-	int		rows;
-	int		cols;
-	int		moves;
-	int		player;
-	int		total_coins;
-	int		coins;
-	// int		collect;
-	int		exit;
+	t_position	prev;
+	t_position	cur;
+	void		*mlx;
+	void		*win;
+	char		**map;
+	int			rows;
+	int			cols;
+	int			moves;
+	int			player;
+	int			total_coins;
+	int			coins;
+	int			exit;
 }	t_game;
 
-
+//moves.c
+int		check_key(int key, t_game *so_long);
 //create_map.c
 void	create_map(t_game *so_long, char *map_file);
-void	read_map(t_game *so_long, int fd);
-//render.c
-void    launch_mlx(t_game *so_long);
-void    load_sprites(t_game *so_long);
-void    render_map(t_game *solong);
-void    render_positions(t_game *so_long, int x, int y);
+//libx.c
+void	launch_mlx(t_game *so_long);
+void	load_sprites(t_game *so_long);
+void	render_map(t_game *solong);
+void	render_positions(t_game *so_long, int x, int y);
 //utils.c
-int	flood_fill(int total_coins, int cur_y, int cur_x, char **test_map);
-int check_key(int key, t_game *so_long);
-int	quit_game(t_game *so_long);
-int	exit_error(char *msg);
-//check_map.c
+int		return_msg(t_game *so_long);
+int		flood_fill(int total_coins, int cur_y, int cur_x, char **test_map);
+int		quit_game(t_game *so_long);
+int		exit_error(char *msg);
+//check_errors.c
 void	check_map(t_game *so_long);
-//ft_libx.c
-int	is_same_point(t_game *so_long);
-int	check_move(t_game *so_long);
-int	render_move(t_game *so_long);
 //clean_and_exit.c
 void	clean_test_map(char **test_map);
 void	clean_game(t_game *so_long);
