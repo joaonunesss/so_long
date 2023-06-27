@@ -6,7 +6,7 @@
 #    By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 13:00:03 by jmarinho          #+#    #+#              #
-#    Updated: 2023/05/30 12:10:41 by jmarinho         ###   ########.fr        #
+#    Updated: 2023/06/23 16:42:24 by jmarinho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isascii.c ft_isalnum.c ft_isprint.c \
 	ft_putchar_fd.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_split.c \
 	ft_printf.c ft_print_char.c ft_print_hexa.c ft_print_pointer.c \
 	ft_print_int.c ft_print_unint.c ft_print_string.c ft_print_percent.c \
-	get_next_line_bonus.c get_next_line_utils_bonus.c \
+	get_next_line.c get_next_line_utils.c \
 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstadd_back.c \
 	ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_lstmap.c \
 

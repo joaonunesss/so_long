@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_libx.c                                          :+:      :+:    :+:   */
+/*   libx.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:34:15 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/23 13:11:09 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:24:25 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,18 @@ void	launch_mlx(t_game *so_long)
 {
 	so_long->mlx = mlx_init();
 	if (!so_long->mlx)
-		exit_error("Failed to initialize mlx.");
+		exit_error(so_long, "Failed to initialize mlx.");
 	so_long->win = mlx_new_window(so_long->mlx, so_long->cols * SIZE, \
 									so_long->rows * SIZE, "so_long");
 	if (!so_long->win)
-		exit_error("Failed to create window.");
+		exit_error(so_long, "Failed to create window.");
 }
 
 void	load_sprites(t_game *so_long)
 {
 	so_long->sprites = malloc(SPRITES * sizeof(t_sprite));
 	if (!so_long->sprites)
-	{
-		ft_printf("Failed to allocate memory on sprites.");
-		quit_game(so_long);
-	}
+		exit_error(so_long, "Failed to allocate memory on sprites.");
 	so_long->sprites[W1].img = mlx_xpm_file_to_image(so_long->mlx, FW1,
 			&(so_long->sprites[W1].width), &(so_long->sprites[W1].height));
 	so_long->sprites[S1].img = mlx_xpm_file_to_image(so_long->mlx, FS1,

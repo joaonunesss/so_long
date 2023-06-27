@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:46:01 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/23 13:25:59 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:25:20 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	render_positions(t_game *so_long, int x, int y);
 int		return_msg(t_game *so_long);
 int		flood_fill(int total_coins, int cur_y, int cur_x, char **test_map);
 int		quit_game(t_game *so_long);
-int		exit_error(char *msg);
+int		exit_error(t_game *so_long, char *msg);
 //check_errors.c
 void	check_map(t_game *so_long);
 //clean_and_exit.c

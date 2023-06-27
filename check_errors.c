@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:30:18 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/23 13:37:36 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:21:31 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,13 @@ int	check_paths(t_game *so_long)
 	reach_exit = 0;
 	test_map = ft_calloc(so_long->rows + 1, sizeof(char *));
 	if (!test_map)
-		exit_error("Malloc failed.");
+		exit_error(so_long, "Malloc failed.");
 	while (++i < so_long->rows)
 	{
 		test_map[i] = ft_strdup(so_long->map[i]);
 		{
 			if (!test_map[i])
-			{
-				clean_test_map(test_map);
-				exit_error("Malloc failed.");
-			}
+				exit_error(so_long, "Malloc failed.");
 		}
 	}
 	reach_exit = flood_fill(so_long->total_coins, so_long->cur.y, \
@@ -107,20 +104,20 @@ void	check_map(t_game *so_long)
 	int	i;
 
 	if (!so_long->rows)
-		exit_error("Map is empty.");
+		exit_error(so_long, "Map is empty.");
 	if (check_format(so_long))
-		exit_error("Map is not a rectangle.");
+		exit_error(so_long, "Map is not a rectangle.");
 	if (check_walls(so_long))
-		exit_error("Map is not surrounded by walls.");
+		exit_error(so_long, "Map is not surrounded by walls.");
 	i = check_sprites(so_long);
 	if (i == 1)
-		exit_error("Map has invalid number of players.");
+		exit_error(so_long, "Map has invalid number of players.");
 	else if (i == 2)
-		exit_error("Map has invalid number of exits.");
+		exit_error(so_long, "Map has invalid number of exits.");
 	else if (i == 3)
-		exit_error("Map has invalid number of coins.");
+		exit_error(so_long, "Map has invalid number of coins.");
 	else if (i == 4)
-		exit_error("Map has invalid characters.");
+		exit_error(so_long, "Map has invalid characters.");
 	if (check_paths(so_long))
-		exit_error("Map has invalid path.");
+		exit_error(so_long, "Map has invalid path.");
 }

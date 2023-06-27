@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:51:15 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/23 14:49:20 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:57:53 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	get_rows(t_game *so_long, char *map_file)
 	so_long->rows = 0;
 	fd = open(map_file, O_RDONLY);
 	if (fd < 0)
-		exit_error("Couldn't open requested file.");
+		exit_error(so_long, "Couldn't open requested file.");
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -32,7 +32,7 @@ void	get_rows(t_game *so_long, char *map_file)
 	close(fd);
 }
 
-void	read_map(t_game *so_long, int *fd)
+void	read_map(t_game *so_long, int fd)
 {
 	int		i;
 	char	*line;
@@ -42,12 +42,12 @@ void	read_map(t_game *so_long, int *fd)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			exit_error("Couldn't read map.");
+			exit_error(so_long, "Couldn't read map.");
 		so_long->map[i] = ft_strtrim(line, "\n");
 		if (!so_long->map[i])
-			exit_error("Couldn't read map.");
+			exit_error(so_long, "Couldn't read map.");
 		free(line);
-	}
+	}	
 }
 
 void	create_map(t_game *so_long, char *map_file)
@@ -57,13 +57,10 @@ void	create_map(t_game *so_long, char *map_file)
 	get_rows(so_long, map_file);
 	so_long->map = ft_calloc(so_long->rows + 1, sizeof(char *));
 	if (!so_long->map)
-	{
-		free(so_long->map);
-		exit_error("Couldn't create so_long->map.");
-	}
+		exit_error(so_long, "Couldn't create so_long->map.");
 	fd = open(map_file, O_RDONLY);
 	if (fd < 0)
-		exit_error("Couldn't open requested file.");
+		exit_error(so_long, "Couldn't open requested file.");
 	read_map(so_long, fd);
 	close(fd);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:31:25 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/05/30 12:11:46 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:34:57 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strchr_gnl(char *temp, char line_break)
 
 	i = 0;
 	if (!temp)
-		return (0);
+		return (NULL);
 	while (temp[i])
 	{
 		if (temp[i] == line_break)
@@ -51,8 +51,7 @@ char	*ft_strjoin_gnl(char *temp, char *buffer)
 		temp = malloc(sizeof(char) * 1);
 		temp[0] = '\0';
 	}
-	strjoin = malloc(sizeof(char) * ((ft_strlen_gnl(temp) + ft_strlen_gnl(buffer))
-				+ 1));
+	strjoin = malloc(sizeof(char) *((ft_strlen_gnl(temp) + ft_strlen_gnl(buffer)) + 1));
 	if (!strjoin)
 		return (NULL);
 	while (temp[++i])
@@ -100,7 +99,7 @@ char	*ft_new_temp(char *temp)
 
 	i = 0;
 	j = 0;
-	while (temp[i] != '\n' && temp[i] != '\0')
+	while (temp[i] != '\0' && temp[i] != '\n')
 		i++;
 	if (temp[i] == '\0')
 	{
@@ -115,5 +114,16 @@ char	*ft_new_temp(char *temp)
 		new_temp[j++] = temp[i++];
 	new_temp[j] = '\0';
 	free(temp);
+	new_temp = ft_new_temp_aux(new_temp);
+	return (new_temp);
+}
+
+char	*ft_new_temp_aux(char *new_temp)
+{
+	if (new_temp[0] == '\0')
+	{
+		free(new_temp);
+		new_temp = 0;
+	}
 	return (new_temp);
 }

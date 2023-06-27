@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:56:37 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/23 13:38:13 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:19:43 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,12 @@ int	flood_fill(int total_coins, int cur_y, int cur_x, char **test_map)
 int	quit_game(t_game *so_long)
 {
 	clean_game(so_long);
-	if (!so_long->sprites)
-		exit(1);
-	else
-		exit(0);
+	exit(0);
 }
 
-int	exit_error(char *msg)
+int	exit_error(t_game *so_long, char *msg)
 {
+	clean_game(so_long);
 	ft_printf("Error\n");
 	ft_printf("%s\n", msg);
 	exit(1);

@@ -6,7 +6,7 @@
 #    By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/23 15:22:11 by jmarinho          #+#    #+#              #
-#    Updated: 2023/06/23 13:24:26 by jmarinho         ###   ########.fr        #
+#    Updated: 2023/06/23 16:14:40 by jmarinho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS = ${SRC:.c=.o}
 
 RM = rm -f
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 MAKE = make -C
 

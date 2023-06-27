@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:27:39 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/05/30 13:01:39 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:35:42 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <stdarg.h>
 # include <signal.h>
 # include <fcntl.h>
+
+# define MAX_FILES 10000
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -82,14 +84,15 @@ int	ft_print_unint(unsigned int nbr);
 int	ft_print_hexa(unsigned int num, char c);
 int	ft_print_percent(void);
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 5
 # endif
 char	*get_next_line(int fd);
 char	*ft_read_and_join(int fd, char *temp);
-int		ft_strlen_gnl(char *str);
-char	*ft_strchr_gnl(char *str, char line_break);
+int	ft_strlen_gnl(char *str);
+char	*ft_strchr_gnl(char *temp, char line_break);
 char	*ft_strjoin_gnl(char *temp, char *buffer);
 char	*ft_get_line(char *temp);
 char	*ft_new_temp(char *temp);
+char	*ft_new_temp_aux(char *new_temp);
 
 #endif
