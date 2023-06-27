@@ -6,11 +6,21 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:28:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/27 17:11:28 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:48:26 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	*ft_new_temp_aux(char *new_temp)
+{
+	if (new_temp[0] == '\0')
+	{
+		free(new_temp);
+		new_temp = 0;
+	}
+	return (new_temp);
+}
 
 char	*ft_read_and_join(int fd, char *temp)
 {

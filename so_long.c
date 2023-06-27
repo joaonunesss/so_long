@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:20:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/23 17:27:21 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:49:56 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ int	main(int ac, char *av[])
 		if (check_filename(av[1]))
 			launch_game(av[1]);
 		else
-			return(1);
+			return (1);
 	}
 	else
 	{
 		exit_error(NULL, "Invalid number of arguments. \
 						Try <./so_long> <maps/map_name.ber>");
-		return(1);
+		return (1);
 	}
 }

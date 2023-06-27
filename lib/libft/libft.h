@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:27:39 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/27 17:35:42 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/27 17:46:36 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,20 +75,21 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-int	ft_printf(const char *format, ...);
-int	ft_print_int(int nbr);
-int	ft_print_char(int c);
-int	ft_print_string(char	*s);
-int	ft_print_pointer(unsigned long p);
-int	ft_print_unint(unsigned int nbr);
-int	ft_print_hexa(unsigned int num, char c);
-int	ft_print_percent(void);
+int		ft_printf(const char *format, ...);
+int		ft_print_int(int nbr);
+int		ft_print_char(int c);
+int		ft_print_string(char	*s);
+int		ft_print_pointer(unsigned long p);
+int		ft_print_unint(unsigned int nbr);
+int		ft_print_hexa(unsigned int num, char c);
+int		ft_print_percent(void);
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
+
 char	*get_next_line(int fd);
 char	*ft_read_and_join(int fd, char *temp);
-int	ft_strlen_gnl(char *str);
+int		ft_strlen_gnl(char *str);
 char	*ft_strchr_gnl(char *temp, char line_break);
 char	*ft_strjoin_gnl(char *temp, char *buffer);
 char	*ft_get_line(char *temp);
