@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 10:47:02 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/04/20 13:19:37 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:32:51 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_putnbr_fd(int n, int fd)
 
 	longnb = n;
 	if (longnb < 0)
-	{	
+	{
 		longnb = -longnb;
 		write(fd, "-", 1);
 		ft_printa(longnb, fd);

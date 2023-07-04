@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmarinho <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 17:14:57 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/04/26 13:42:21 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:32:39 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char	**ft_split(char const *s, char c)
 	if (big_array == NULL)
 		return (NULL);
 	while (k < count_words)
-	{		
+	{
 		while (s[i] == c)
 			i++;
 		word_len = 0;
