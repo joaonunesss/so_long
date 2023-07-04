@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 16:30:18 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/23 16:21:31 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:15:34 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	check_format(t_game *so_long)
 	while (i < so_long->rows)
 	{
 		if (ft_strlen(so_long->map[i]) != row_len)
-			return (1);
+			return (EXIT_FAILURE);
 		i++;
 	}
 	so_long->cols = ft_strlen(so_long->map[0]);
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 int	check_walls(t_game *so_long)
@@ -37,13 +37,13 @@ int	check_walls(t_game *so_long)
 	while (++i < so_long->rows)
 		if (so_long->map[i][0] != WALL || so_long->map[i][so_long->cols
 			- 1] != WALL)
-			return (1);
+			return (EXIT_FAILURE);
 	i = -1;
 	while (++i < so_long->cols)
 		if (so_long->map[0][i] != WALL || so_long->map[so_long->rows
 			- 1][i] != WALL)
-			return (1);
-	return (0);
+			return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
 int	check_sprites(t_game *so_long)
@@ -68,7 +68,7 @@ int	check_sprites(t_game *so_long)
 			else if (so_long->map[i][j] == COIN)
 				so_long->total_coins++;
 			else if (!ft_strchr("01CEP", so_long->map[i][j]))
-				return (4);
+				return (44);
 		}
 	}
 	return (return_msg(so_long));
@@ -110,13 +110,13 @@ void	check_map(t_game *so_long)
 	if (check_walls(so_long))
 		exit_error(so_long, "Map is not surrounded by walls.");
 	i = check_sprites(so_long);
-	if (i == 1)
+	if (i == 11)
 		exit_error(so_long, "Map has invalid number of players.");
-	else if (i == 2)
+	else if (i == 22)
 		exit_error(so_long, "Map has invalid number of exits.");
-	else if (i == 3)
+	else if (i == 33)
 		exit_error(so_long, "Map has invalid number of coins.");
-	else if (i == 4)
+	else if (i == 44)
 		exit_error(so_long, "Map has invalid characters.");
 	if (check_paths(so_long))
 		exit_error(so_long, "Map has invalid path.");

@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:46:01 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/23 16:25:20 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/28 16:00:55 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,48 +18,37 @@
 
 # define SIZE		32
 # define SPRITES	5
+
 # define FW1		"sprites/wall2.xpm"
 # define FS1		"sprites/background2.xpm"
 # define FC1		"sprites/colectible2.xpm"
 # define FE1		"sprites/exit2.xpm"
 # define FP1		"sprites/player2.xpm"
 
-typedef enum e_tile
-{
-	SPACE	= '0',
-	WALL	= '1',
-	COIN	= 'C',
-	EXIT	= 'E',
-	PLAYER	= 'P',
-}	t_tile;
+# define SPACE		'0'
+# define WALL		'1'
+# define COIN		'C'
+# define EXIT		'E'
+# define PLAYER		'P'
 
-typedef enum e_index
-{
-	W1,
-	S1,
-	C1,
-	E1,
-	P1,
-}	t_id;
+# define ON_KEYPRESS 2
+# define ON_CLOSE 17
 
-typedef enum e_key
-{
-	ESC		= 65307,
-	W		= 119,
-	A		= 97,
-	S		= 115,
-	D		= 100,
-	UP		= 65362,
-	DOWN	= 65364,
-	LEFT	= 65361,
-	RIGHT	= 65363,
-}	t_key;
+# define ESC	65307
+# define W		119
+# define A		97
+# define S		115
+# define D		100
+# define UP		65362
+# define DOWN	65364
+# define LEFT	65361
+# define RIGHT	65363
 
-typedef enum e_event
-{
-	ON_KEYPRESS	= 2,
-	ON_CLOSE	= 17,
-}	t_event;
+# define W1 0
+# define S1 1
+# define C1 2
+# define E1 3
+# define P1 4
 
 typedef enum e_mask
 {

@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:20:30 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/27 17:49:56 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:06:44 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ void	launch_game(char *map_file)
 int	check_filename(char *str)
 {
 	if (ft_strnstr(str + ft_strlen(str) - 4, ".ber", 4))
-		return (1);
+		return (EXIT_SUCCESS);
 	else
 	{
-		exit_error(NULL, "Invalid file extension. Try <map_name>.ber");
-		return (0);
+		ft_printf("Error!\nInvalid file extension. Try <map_name>.ber");
+		return (EXIT_FAILURE);
 	}
 }
 
@@ -42,15 +42,15 @@ int	main(int ac, char *av[])
 {
 	if (ac == 2)
 	{
-		if (check_filename(av[1]))
+		if (!check_filename(av[1]))
 			launch_game(av[1]);
 		else
-			return (1);
+			return (EXIT_FAILURE);
 	}
 	else
 	{
-		exit_error(NULL, "Invalid number of arguments. \
-						Try <./so_long> <maps/map_name.ber>");
-		return (1);
+		ft_printf("Error!\nInvalid number of arguments. ");
+		ft_printf("Try <./so_long> <maps/map_name.ber>");
+		return (EXIT_FAILURE);
 	}
 }

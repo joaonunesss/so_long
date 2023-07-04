@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 17:51:15 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/23 16:57:53 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:30:23 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	get_rows(t_game *so_long, char *map_file)
 
 	so_long->rows = 0;
 	fd = open(map_file, O_RDONLY);
-	if (fd < 0)
+	if (fd == -1)
 		exit_error(so_long, "Couldn't open requested file.");
 	while (1)
 	{
@@ -29,7 +29,6 @@ void	get_rows(t_game *so_long, char *map_file)
 		free(line);
 		so_long->rows++;
 	}
-	close(fd);
 }
 
 void	read_map(t_game *so_long, int fd)
@@ -47,7 +46,7 @@ void	read_map(t_game *so_long, int fd)
 		if (!so_long->map[i])
 			exit_error(so_long, "Couldn't read map.");
 		free(line);
-	}	
+	}
 }
 
 void	create_map(t_game *so_long, char *map_file)

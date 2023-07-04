@@ -6,7 +6,7 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:34:15 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/06/23 16:24:25 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:54:43 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,24 @@ void	render_map(t_game *so_long)
 
 void	render_positions(t_game *so_long, int x, int y)
 {
-	t_sprite	sp;
-
 	if (so_long->map[y][x] == WALL)
-		sp = so_long->sprites[W1];
+		mlx_put_image_to_window(so_long->mlx, so_long->win, \
+		so_long->sprites[W1].img, so_long->sprites[W1].width * x, \
+								so_long->sprites[W1].height * y);
 	else if (so_long->map[y][x] == COIN)
-		sp = so_long->sprites[C1];
+		mlx_put_image_to_window(so_long->mlx, so_long->win, \
+		so_long->sprites[C1].img, so_long->sprites[C1].width * x, \
+								so_long->sprites[C1].height * y);
 	else if (so_long->map[y][x] == EXIT)
-		sp = so_long->sprites[E1];
+		mlx_put_image_to_window(so_long->mlx, so_long->win, \
+		so_long->sprites[E1].img, so_long->sprites[E1].width * x, \
+								so_long->sprites[E1].height * y);
 	else if (so_long->map[y][x] == SPACE)
-		sp = so_long->sprites[S1];
+		mlx_put_image_to_window(so_long->mlx, so_long->win, \
+		so_long->sprites[S1].img, so_long->sprites[S1].width * x, \
+								so_long->sprites[S1].height * y);
 	else if (so_long->map[y][x] == PLAYER)
-		sp = so_long->sprites[P1];
-	mlx_put_image_to_window(so_long->mlx, so_long->win, sp.img, sp.width * x, \
-								sp.height * y);
+		mlx_put_image_to_window(so_long->mlx, so_long->win, \
+		so_long->sprites[P1].img, so_long->sprites[P1].width * x, \
+								so_long->sprites[P1].height * y);
 }
