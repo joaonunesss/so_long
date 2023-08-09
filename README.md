@@ -1,6 +1,10 @@
 # so_long
 
-Objectives
+
+| Projects      | Solutions  |
+| :--------------:| :----------:|
+| so_long| [100%]|
+
 It’s time for you to create a basic computer graphics project!
 so long will help you improve your skills in the following areas: window management,
 event handling, colors, textures, and so forth.
