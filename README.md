@@ -1,6 +1,4 @@
 # so_long
-My take on so_long
-
 
 Objectives
 It’s time for you to create a basic computer graphics project!
